@@ -48,6 +48,14 @@ const startServer = async () => {
       } catch (e) {
         console.error('Failed to schedule no-show cancellation job:', e.message);
       }
+
+      try {
+        const { scheduleDailyReports } = require('./jobs/dailyReportGeneration');
+        scheduleDailyReports();
+        console.log('Daily report generation job scheduled for 19:00 daily');
+      } catch (e) {
+        console.error('Failed to schedule daily report generation job:', e.message);
+      }
     });
 
     server.on('error', (err) => {

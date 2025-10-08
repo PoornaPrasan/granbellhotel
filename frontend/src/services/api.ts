@@ -266,6 +266,56 @@ export const reportsApi = {
     });
     return handleResponse(response);
   },
+
+  getDailyOccupancy: async (date?: string) => {
+    const params = date ? `?date=${date}` : '';
+    const response = await fetch(`${API_BASE_URL}/reports/daily-occupancy${params}`, {
+      method: 'GET',
+      headers: createHeaders(),
+    });
+    return handleResponse(response);
+  },
+
+  getNoShow: async (date?: string) => {
+    const params = date ? `?date=${date}` : '';
+    const response = await fetch(`${API_BASE_URL}/reports/no-show${params}`, {
+      method: 'GET',
+      headers: createHeaders(),
+    });
+    return handleResponse(response);
+  },
+
+  getHotelOccupancy: async (startDate: string, endDate: string) => {
+    const response = await fetch(`${API_BASE_URL}/reports/hotel-occupancy?startDate=${startDate}&endDate=${endDate}`, {
+      method: 'GET',
+      headers: createHeaders(),
+    });
+    return handleResponse(response);
+  },
+
+  getFinancial: async (startDate: string, endDate: string) => {
+    const response = await fetch(`${API_BASE_URL}/reports/financial?startDate=${startDate}&endDate=${endDate}`, {
+      method: 'GET',
+      headers: createHeaders(),
+    });
+    return handleResponse(response);
+  },
+
+  getCheckoutStatement: async (reservationId: string) => {
+    const response = await fetch(`${API_BASE_URL}/reports/checkout-statement/${reservationId}`, {
+      method: 'GET',
+      headers: createHeaders(),
+    });
+    return handleResponse(response);
+  },
+
+  getRevenue: async (startDate: string, endDate: string) => {
+    const response = await fetch(`${API_BASE_URL}/reports/revenue?startDate=${startDate}&endDate=${endDate}`, {
+      method: 'GET',
+      headers: createHeaders(),
+    });
+    return handleResponse(response);
+  },
 };
 
 // Users API

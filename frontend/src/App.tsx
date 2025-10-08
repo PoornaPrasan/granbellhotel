@@ -13,6 +13,7 @@ import UserManagement from './components/Admin/UserManagement';
 import RoomManagement from './components/Admin/RoomManagement';
 import CheckInOut from './components/Admin/CheckInOut';
 import GuestsManagement from './components/Admin/GuestsManagement';
+import ReportsPage from './components/Reports/ReportsPage';
 
 const AppContent: React.FC = () => {
   const { isAuthenticated, user } = useAuth();
@@ -58,24 +59,12 @@ const AppContent: React.FC = () => {
         return <RoomManagement />;
       case 'checkin':
         return <CheckInOut />;
-      case 'rooms':
-        return (
-          <div className="text-center py-12">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Room Management</h2>
-            <p className="text-gray-600">Room management functionality coming soon...</p>
-          </div>
-        );
       case 'guests':
         return <GuestsManagement />;
       case 'billing':
         return <MyInvoices />;
       case 'reports':
-        return (
-          <div className="text-center py-12">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Reports & Analytics</h2>
-            <p className="text-gray-600">Reporting functionality coming soon...</p>
-          </div>
-        );
+        return <ReportsPage />;
       case 'settings':
         return (
           <div className="text-center py-12">

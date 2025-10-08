@@ -68,7 +68,7 @@ const Navigation: React.FC<NavigationProps> = ({ activeTab, onTabChange }) => {
       id: 'reports',
       name: 'Reports',
       icon: BarChart3,
-      roles: ['admin', 'manager'],
+      roles: ['admin', 'manager', 'clerk', 'travel_company'],
     },
     {
       id: 'settings',
